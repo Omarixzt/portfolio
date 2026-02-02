@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Omar Khateeb - Software Engineer Portfolio">
+    <title>Omar Khateeb | Software Engineer</title>
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>💻</text></svg>">
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+    
+    <script src="https://unpkg.com/lucide@0.292.0"></script>
+    <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
+    <script src="https://unpkg.com/typed.js@2.1.0/dist/typed.umd.js"></script>
+
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <canvas id="bg-canvas"></canvas>
+
+    <div class="side-glow left-glow"></div>
+    <div class="side-glow right-glow"></div>
+
+    <header>
+        <nav>
+            <a href="#home" class="logo">
+                <span>_</span>OMAR
+            </a>
+
+            <ul class="nav-links">
+                <li><a href="#home">Home</a></li>
+                <li><a href="#about">About</a></li>
+                <li><a href="#skills">Skills</a></li>
+                <li><a href="#projects">Projects</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+
+            <div class="menu-toggle" aria-label="Toggle Menu">
+                <i data-lucide="menu"></i>
+            </div>
+        </nav>
+    </header>
+
+    <section id="home" class="hero">
+    <div class="hero-container">
+        <div class="hero-text">
+            <h1>Hi, I'm <span style="color: var(--accent);">Omar Khateeb</span></h1>
+            <span class="typing-text"></span>
+            <p>Specialized in developing efficient Desktop Systems, Mobile Solutions, and Modern Web Applications.</p>
+            
+            <div class="hero-socials">
+                <a href="https://github.com/Omarixzt" target="_blank" aria-label="GitHub Profile"><i data-lucide="github"></i></a>
+                <a href="https://www.linkedin.com/in/omarkhateeb7" target="_blank" aria-label="LinkedIn Profile"><i data-lucide="linkedin"></i></a>
+                <a href="https://www.instagram.com/0vvar_" target="_blank" aria-label="Instagram Profile"><i data-lucide="instagram"></i></a>
+                <a href="mailto:omarizxt@gmail.com" aria-label="Send Email"><i data-lucide="mail"></i></a>
+            </div>
+            <a href="#contact" class="btn">Hire Me</a>
+        </div>
+
+        <div class="hero-image-wrapper">
+            <img src="omar-cutout.png" alt="Omar Khateeb" class="dev-img">
+            
+            <div class="glow-circle"></div>
+            <div class="code-bracket">{ }</div>
+        </div>
+    </div>
+</section>
+
+    <section id="about">
+        <div class="section-header">
+            <h2>
+                About Me
+                <span class="top-border"></span>
+                <span class="left-border"></span>
+            </h2>
+        </div>
+        <div class="about-grid">
+            <div class="about-text">
+                <p>I am a passionate Software Engineer dedicated to building modern Web Applications and efficient Mobile Solutions. My focus is on developing high-performance platforms, from interactive analytics dashboards to responsive SaaS landing pages.</p>
+                <p>I enjoy solving complex technical challenges, whether it's optimizing database architecture, implementing clean state management logic, or crafting seamless user experiences across all devices.</p>
+                <div class="about-stats">
+                    <div class="stat-item">
+                        <h3>3+</h3>
+                        <p>Years Coding</p>
+                    </div>
+                    <div class="stat-item">
+                        <h3>10+</h3>
+                        <p>Projects Built</p>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="code-block">
+                <span style="color: #c678dd;">const</span> <span style="color: #e5c07b;">engineer</span> = {<br>
+                &nbsp;&nbsp;<span style="color: #e06c75;">name</span>: <span style="color: #98c379;">"Omar Khateeb"</span>,<br>
+                &nbsp;&nbsp;<span style="color: #e06c75;">role</span>: <span style="color: #98c379;">"Software Engineer"</span>,<br>
+                &nbsp;&nbsp;<span style="color: #e06c75;">status</span>: <span style="color: #98c379;">"ready for work"</span>,<br>
+                &nbsp;&nbsp;<span style="color: #e06c75;">coffee</span>: <span style="color: #98c379;">true</span><br>
+                };
+            </div>
+        </div>
+    </section>
+
+    <section id="skills">
+        <div class="section-header">
+            <h2>
+                Technical Skills
+                <span class="top-border"></span>
+                <span class="left-border"></span>
+            </h2>
+        </div>
+        <div class="skills-container">
+            <div class="skill-tag"><i data-lucide="code-2"></i> JavaScript</div>
+            <div class="skill-tag"><i data-lucide="server"></i> Node.js</div>
+            <div class="skill-tag"><i data-lucide="smartphone"></i> Flutter & Dart</div>
+            <div class="skill-tag"><i data-lucide="database"></i> SQL & Databases</div>
+            <div class="skill-tag"><i data-lucide="git-branch"></i> Git & GitHub</div>
+            <div class="skill-tag"><i data-lucide="coffee"></i> Java</div>
+            <div class="skill-tag"><i data-lucide="wrench"></i> Code Refactoring</div>
+            <div class="skill-tag"><i data-lucide="layers"></i> System Analysis</div>
+        </div>
+    </section>
+
+    <section id="projects">
+        <div class="section-header">
+            <h2>
+                Featured Projects
+                <span class="top-border"></span>
+                <span class="left-border"></span>
+            </h2>
+        </div>
+        <div class="projects-grid" id="projects-container"></div>
+    </section>
+
+    <section id="contact">
+        <div class="section-header">
+            <h2>
+                Get In Touch
+                <span class="top-border"></span>
+                <span class="left-border"></span>
+            </h2>
+        </div>
+        <div class="contact-container">
+            <p style="margin-bottom: 2rem; color: var(--text-muted);">
+                Feel free to reach out for collaborations or just a friendly hello.
+            </p>
+            
+            <form id="contact-form" action="https://formspree.io/f/mnjjjpod" method="POST">
+                <input type="text" name="name" placeholder="Your Name" required>
+                <input type="email" name="email" placeholder="Your Email" required>
+                <textarea name="message" rows="5" placeholder="Your Message" required></textarea>
+                <button type="submit" class="btn" style="width: 100%; border:none; cursor: pointer;">Send Message</button>
+            </form>
+        </div>
+    </section>
+
+    <button id="back-to-top" aria-label="Back to Top">
+        <i data-lucide="arrow-up"></i>
+    </button>
+    
+    <footer>
+        <p>&copy; <span id="year"></span> Omar Khateeb. All Rights Reserved.</p>
+    </footer>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>
