@@ -308,13 +308,13 @@ nav {
 .hero-image-wrapper::after {
     content: '';
     position: absolute;
-    width: 250px;
-    height: 250px;
+    width: 200px;
+    height: 200px;
     background: var(--accent);
-    filter: blur(80px);
-    opacity: 0.4;
+    filter: blur(70px); 
+    opacity: 0.35;
     z-index: 0;
-    top: 40%;
+    top: 45%;
     left: 50%;
     transform: translate(-50%, -50%);
     pointer-events: none;
@@ -833,19 +833,20 @@ footer {
     }
 
     .hero-image-wrapper {
-        height: 350px;
-        width: 100%;
-        padding: 40px 0;
+        height: 320px;
+        margin-top: -10px;
     }
 
     .hero-image-wrapper::after {
-        width: 180px;
-        height: 180px;
+        width: 120px;
+        height: 120px;
         filter: blur(60px);
+        opacity: 0.3;
+        top: 35%;
     }
 
     .dev-img {
-        max-width: 70%;
+        max-width: 80%;
     }
     .hero-text h1 {
         font-size: 2.2rem;
