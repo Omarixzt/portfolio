@@ -290,9 +290,9 @@ nav {
     display: flex;
     justify-content: center;
     align-items: center; 
-    height: 450px; 
+    height: 400px; 
     margin-top: -30px; 
-    padding: 20px;
+    overflow: visible !important;
 }
 .dev-img {
     position: relative;
@@ -303,6 +303,21 @@ nav {
     mask-image: linear-gradient(to bottom, black 80%, transparent 100%);
     -webkit-mask-image: linear-gradient(to bottom, black 80%, transparent 100%);
     animation: floatBreathing 5s ease-in-out infinite;
+}
+
+.hero-image-wrapper::after {
+    content: '';
+    position: absolute;
+    width: 250px;
+    height: 250px;
+    background: var(--accent);
+    filter: blur(80px);
+    opacity: 0.4;
+    z-index: 0;
+    top: 40%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    pointer-events: none;
 }
 
 
@@ -820,6 +835,13 @@ footer {
     .hero-image-wrapper {
         height: 350px;
         width: 100%;
+        padding: 40px 0;
+    }
+
+    .hero-image-wrapper::after {
+        width: 180px;
+        height: 180px;
+        filter: blur(60px);
     }
 
     .dev-img {
