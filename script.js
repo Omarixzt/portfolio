@@ -182,7 +182,7 @@ const initTyped = () => {
     if(!element) return;
 
     new Typed('.typing-text', {
-        strings: ["Software Engineer", "Full Stack Developer", "System Analyst"],
+        strings: ["Software Engineer", "Full Stack Developer", "Mobile App Developer"],
         typeSpeed: 100,
         backSpeed: 50,
         backDelay: 2000,
@@ -385,4 +385,5 @@ document.addEventListener('DOMContentLoaded', () => {
         progress = Math.min(Math.max(progress, 0), 1);
         document.documentElement.style.setProperty('--scroll-per', `${progress * 100}%`);
     });
+
 });
