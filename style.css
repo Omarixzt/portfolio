@@ -290,8 +290,9 @@ nav {
     display: flex;
     justify-content: center;
     align-items: center; 
-    height: 400px; 
+    height: 450px; 
     margin-top: -30px; 
+    padding: 20px;
 }
 .dev-img {
     position: relative;
@@ -301,21 +302,21 @@ nav {
     z-index: 2;
     mask-image: linear-gradient(to bottom, black 80%, transparent 100%);
     -webkit-mask-image: linear-gradient(to bottom, black 80%, transparent 100%);
-    filter: drop-shadow(0 0 20px rgba(139, 92, 246, 0.3));
     animation: floatBreathing 5s ease-in-out infinite;
 }
 
+
 .glow-circle {
     position: absolute;
-    top: 20%;
+    top: 50%;
     left: 50%;
-    transform: translateX(-50%);
-    width: 300px;
-    height: 300px;
+    transform: translate(-50%, -50%);
+    width: 350px;
+    height: 350px;
     background: radial-gradient(circle, var(--accent) 0%, transparent 70%);
-    opacity: 0.4;
+    opacity: 0.5;
     z-index: 1;
-    filter: blur(40px);
+    filter: blur(60px);
 }
 
 .code-bracket {
