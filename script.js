@@ -385,5 +385,4 @@ document.addEventListener('DOMContentLoaded', () => {
         progress = Math.min(Math.max(progress, 0), 1);
         document.documentElement.style.setProperty('--scroll-per', `${progress * 100}%`);
     });
-
 });
