@@ -11,21 +11,21 @@ const projects = [
         title: "Mobile Shop Management",
         description: "A comprehensive system for mobile shops including sales tracking, inventory management, and device maintenance logging.",
         techStack: ["Desktop","Flutter", "Dart", "SQL"],
-        videoSrc: "assets/pos-demo.mp4", 
+        imageSrc: "assets/comingsoon.jpg", 
         gradientClass: "gradient-1"
     },
     {
         title: "POS Analytics Dashboard",
         description: "A serverless web tool built with Flutter that parses raw SQLite database files directly in the browser using WebAssembly.",
         techStack: ["Mobile", "Flutter Web", "SQLite WASM"],
-        videoSrc: null,
+        imageSrc: "assets/comingsoon.jpg",
         gradientClass: "gradient-2"
     },
     {
         title: "SaaS Product Landing Page",
         description: "A high-performance landing page designed for a tech startup. Built with a mobile-first approach and smooth animations.",
         techStack: ["Web", "HTML5", "CSS3", "SEO"],
-        videoSrc: null,
+        imageSrc: "assets/comingsoon.jpg",
         gradientClass: "gradient-3"
     }
 ];
@@ -385,4 +385,5 @@ document.addEventListener('DOMContentLoaded', () => {
         progress = Math.min(Math.max(progress, 0), 1);
         document.documentElement.style.setProperty('--scroll-per', `${progress * 100}%`);
     });
+
 });
