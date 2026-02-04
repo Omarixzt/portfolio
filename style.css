@@ -551,11 +551,25 @@ nav {
     box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4);
 }
 
+.project-img {
+    height: 180px;
+    position: relative;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #1a1a1a;
+}
+
+/* Image styling to cover the gradient */
 .project-img img {
     width: 100%;
     height: 100%;
     object-fit: cover;
-    display: block;
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 2;
     transition: transform 0.5s ease;
 }
 
@@ -563,17 +577,7 @@ nav {
     transform: scale(1.1);
 }
 
-.project-img {
-    height: 180px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    color: #fff;
-    font-size: 3rem;
-    position: relative;
-    overflow: hidden;
-}
-
+/* Gradients as fallback or overlay */
 .gradient-1 { background: linear-gradient(135deg, #6366f1, #a855f7); }
 .gradient-2 { background: linear-gradient(135deg, #ec4899, #8b5cf6); }
 .gradient-3 { background: linear-gradient(135deg, #3b82f6, #14b8a6); }
@@ -613,12 +617,6 @@ nav {
     border-radius: 20px;
 }
 
-.project-video {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    display: block;
-}
 
 /* =========================================
    8. CONTACT SECTION
@@ -876,3 +874,4 @@ footer {
 }
 
 }
+
