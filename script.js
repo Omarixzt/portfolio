@@ -47,19 +47,19 @@ const renderProjects = () => {
             .map(tech => `<span class="tech-badge">${tech}</span>`)
             .join('');
 
-        // Media Logic: Prioritize Video, then Image, then Icon
+        // Media Logic: Prioritize Video, then Image, then "Coming Soon" placeholder
         let mediaContent = "";
         if (project.videoSrc) {
             mediaContent = `<video class="project-video" muted playsinline preload="metadata"><source src="${project.videoSrc}" type="video/mp4"></video>`;
         } else if (project.imageSrc) {
             mediaContent = `<img src="${project.imageSrc}" alt="${project.title}" class="project-img-content">`;
         } else {
-            mediaContent = `<i data-lucide="folder-code"></i>`;
+            // Default placeholder image for all other projects
+            mediaContent = `<img src="assets/comingsoon.jpg" alt="Coming Soon" class="project-img-content">`;
         }
 
-        // Apply gradient class only if there is no video or image covering it
-        const hasMedia = project.videoSrc || project.imageSrc;
-        const imgContainerClass = hasMedia ? "project-img" : `project-img ${project.gradientClass}`;
+        // Always apply "project-img" since we now always have media (video, image, or placeholder)
+        const imgContainerClass = "project-img";
 
         card.innerHTML = `
             <div class="${imgContainerClass}">${mediaContent}</div>
@@ -387,4 +387,5 @@ document.addEventListener('DOMContentLoaded', () => {
     });
 
 });
+
 
