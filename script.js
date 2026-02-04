@@ -35,23 +35,31 @@ const projects = [
  */
 const renderProjects = () => {
     const container = document.getElementById('projects-container');
-    if(!container) return;
-    
-    container.innerHTML = ''; 
+    if (!container) return;
+
+    container.innerHTML = '';
 
     projects.forEach(project => {
         const card = document.createElement('div');
         card.classList.add('project-card');
-        
+
         const techStackHTML = project.techStack
             .map(tech => `<span class="tech-badge">${tech}</span>`)
             .join('');
 
-        let mediaContent = project.videoSrc 
-            ? `<video class="project-video" muted playsinline preload="metadata"><source src="${project.videoSrc}" type="video/mp4"></video>`
-            : `<i data-lucide="folder-code"></i>`;
+        // Media Logic: Prioritize Video, then Image, then Icon
+        let mediaContent = "";
+        if (project.videoSrc) {
+            mediaContent = `<video class="project-video" muted playsinline preload="metadata"><source src="${project.videoSrc}" type="video/mp4"></video>`;
+        } else if (project.imageSrc) {
+            mediaContent = `<img src="${project.imageSrc}" alt="${project.title}" class="project-img-content">`;
+        } else {
+            mediaContent = `<i data-lucide="folder-code"></i>`;
+        }
 
-        let imgContainerClass = project.videoSrc ? "project-img has-video" : `project-img ${project.gradientClass}`;
+        // Apply gradient class only if there is no video or image covering it
+        const hasMedia = project.videoSrc || project.imageSrc;
+        const imgContainerClass = hasMedia ? "project-img" : `project-img ${project.gradientClass}`;
 
         card.innerHTML = `
             <div class="${imgContainerClass}">${mediaContent}</div>
@@ -62,33 +70,25 @@ const renderProjects = () => {
             </div>
         `;
 
-        // Desktop Hover & Mobile Intersection Logic
+        // Handle Video Playback Logic
         if (project.videoSrc) {
             const video = card.querySelector('video');
 
-            // Desktop Hover
             card.addEventListener('mouseenter', () => {
-                if(window.innerWidth >= 768) {
-                    video.play().catch(e => console.log("Play interrupted")); 
-                }
+                if (window.innerWidth >= 768) video.play().catch(() => {});
             });
 
             card.addEventListener('mouseleave', () => {
-                if(window.innerWidth >= 768) {
+                if (window.innerWidth >= 768) {
                     video.pause();
                     video.currentTime = 0;
                 }
             });
 
-            // Mobile Auto-play on View
             const mobileObserver = new IntersectionObserver((entries) => {
                 entries.forEach(entry => {
                     if (window.innerWidth < 768) {
-                        if (entry.isIntersecting) {
-                            video.play().catch(e => {});
-                        } else {
-                            video.pause();
-                        }
+                        entry.isIntersecting ? video.play().catch(() => {}) : video.pause();
                     }
                 });
             }, { threshold: 0.6 });
@@ -99,7 +99,7 @@ const renderProjects = () => {
         container.appendChild(card);
     });
 
-    if(window.lucide) lucide.createIcons();
+    if (window.lucide) lucide.createIcons();
     ScrollTrigger.refresh();
 };
 
@@ -387,3 +387,4 @@ document.addEventListener('DOMContentLoaded', () => {
     });
 
 });
+
