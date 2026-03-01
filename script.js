@@ -9,15 +9,15 @@ gsap.registerPlugin(ScrollTrigger);
 const projects = [
     {
         title: "Mobile Shop Management",
-        description: "A comprehensive system for mobile shops including sales tracking, inventory management, and device maintenance logging.",
-        techStack: ["Desktop","Flutter", "Dart", "SQL"],
+        description: "A high-performance enterprise solution for mobile retailers. Features real-time inventory control, automated sales analytics, and a comprehensive hardware maintenance module. Includes smart expense tracking, commission management, and an automated cloud backup system via Telegram.",
+        techStack: ["Desktop","Flutter", "Dart", "SQLite"],
         imageSrc: "assets/pos_overview.jpg", 
         gradientClass: "gradient-1"
     },
     {
         title: "Samsung Smart TV Movie Browser (Tizen OS)",
         description: "A specialized web application optimized for Tizen OS, featuring remote control navigation mapping and advanced ad-blocking logic for a seamless viewing experience.",
-        techStack: ["Tizen OS", "Advanced JavaScript", "Embedded Web Tech"],
+        techStack: ["Tizen OS", "JavaScript", "Embedded Web Tech"],
         imageSrc: "assets/TvBrowser_overview.jpg",
         gradientClass: "gradient-2"
     },
@@ -387,6 +387,7 @@ document.addEventListener('DOMContentLoaded', () => {
     });
 
 });
+
 
 
 
