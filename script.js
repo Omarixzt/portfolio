@@ -17,7 +17,7 @@ const projects = [
     {
         title: "Samsung Smart TV Movie Browser (Tizen OS)",
         description: "A specialized web application optimized for Tizen OS, featuring remote control navigation mapping and advanced ad-blocking logic for a seamless viewing experience.",
-        techStack: ["Tizen OS", "JavaScript", "Embedded Web Tech"],
+        techStack: ["Tizen OS", "Vanilla JS", "TV APIs"],
         imageSrc: "assets/TvBrowser_overview.jpg",
         gradientClass: "gradient-2"
     },
@@ -387,6 +387,7 @@ document.addEventListener('DOMContentLoaded', () => {
     });
 
 });
+
 
 
 
