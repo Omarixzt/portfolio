@@ -47,18 +47,15 @@ const renderProjects = () => {
             .map(tech => `<span class="tech-badge">${tech}</span>`)
             .join('');
 
-        // Media Logic: Prioritize Video, then Image, then "Coming Soon" placeholder
         let mediaContent = "";
         if (project.videoSrc) {
             mediaContent = `<video class="project-video" muted playsinline preload="metadata"><source src="${project.videoSrc}" type="video/mp4"></video>`;
         } else if (project.imageSrc) {
             mediaContent = `<img src="${project.imageSrc}" alt="${project.title}" class="project-img-content">`;
         } else {
-            // Default placeholder image for all other projects
             mediaContent = `<img src="assets/comingsoon.jpg" alt="Coming Soon" class="project-img-content">`;
         }
 
-        // Always apply "project-img" since we now always have media (video, image, or placeholder)
         const imgContainerClass = "project-img";
 
         card.innerHTML = `
@@ -70,7 +67,6 @@ const renderProjects = () => {
             </div>
         `;
 
-        // Handle Video Playback Logic
         if (project.videoSrc) {
             const video = card.querySelector('video');
 
@@ -232,7 +228,6 @@ const initBackground = () => {
         canvas.height = height;
     };
     
-    // Performance improvement: Debounce resize event
     let resizeTimeout;
     window.addEventListener('resize', () => {
         clearTimeout(resizeTimeout);
@@ -321,7 +316,7 @@ const initContactForm = () => {
         const btn = form.querySelector('button');
         const originalText = btn.innerText;
         
-        btn.innerText = "جاري الإرسال...";
+        btn.innerText = "Sending...";
         btn.disabled = true;
 
         const formData = new FormData(form);
@@ -334,13 +329,13 @@ const initContactForm = () => {
             });
             
             if (response.ok) {
-                btn.innerText = "تم الإرسال بنجاح! ✅";
+                btn.innerText = "Success! ✅";
                 form.reset();
             } else {
                 throw new Error('Submission failed');
             }
         } catch (error) {
-            btn.innerText = "فشل الإرسال ❌";
+            btn.innerText = "Failed ❌";
         }
         
         setTimeout(() => {
@@ -351,7 +346,48 @@ const initContactForm = () => {
 };
 
 /**
- * 6. Initialization
+ * 6. Lightbox & Image Protection
+ */
+const initImageFeatures = () => {
+    // Prevent Right Click and Dragging on all images
+    document.addEventListener('contextmenu', e => {
+        if (e.target.tagName === 'IMG') e.preventDefault();
+    });
+    document.addEventListener('dragstart', e => {
+        if (e.target.tagName === 'IMG') e.preventDefault();
+    });
+
+    // Create Lightbox DOM
+    const modal = document.createElement('div');
+    modal.id = 'lightbox-modal';
+    modal.innerHTML = `
+        <span class="close-lightbox">&times;</span>
+        <img class="lightbox-content" id="lightbox-img" alt="Enlarged Project">
+    `;
+    document.body.appendChild(modal);
+
+    const modalImg = document.getElementById('lightbox-img');
+
+    // Open Lightbox on image click
+    document.addEventListener('click', (e) => {
+        if (e.target.classList.contains('project-img-content') && e.target.tagName === 'IMG') {
+            modal.style.display = 'flex';
+            modalImg.src = e.target.src;
+            setTimeout(() => modal.classList.add('show'), 10);
+        }
+    });
+
+    // Close Lightbox
+    const closeModal = () => {
+        modal.classList.remove('show');
+        setTimeout(() => modal.style.display = 'none', 300);
+    };
+
+    modal.addEventListener('click', closeModal);
+};
+
+/**
+ * 7. Initialization
  */
 document.addEventListener('DOMContentLoaded', () => {
     renderProjects();
@@ -361,7 +397,8 @@ document.addEventListener('DOMContentLoaded', () => {
     initSectionHeaders();
     initScrollSpy();
     initBackToTop();
-    initContactForm(); // Initialize AJAX Form
+    initContactForm(); 
+    initImageFeatures();
 
     setTimeout(() => {
         initGSAP();
@@ -371,24 +408,16 @@ document.addEventListener('DOMContentLoaded', () => {
     const yearEl = document.getElementById("year");
     if(yearEl) yearEl.textContent = new Date().getFullYear();
 
-    // Mobile Menu
     const menuToggle = document.querySelector('.menu-toggle');
     const navLinks = document.querySelector('.nav-links');
     if (menuToggle) {
         menuToggle.addEventListener('click', () => navLinks.classList.toggle('active'));
     }
 
-    // Scroll Progress Bar
     window.addEventListener('scroll', () => {
         const totalScroll = document.body.scrollHeight - window.innerHeight;
         let progress = (window.scrollY / totalScroll);
         progress = Math.min(Math.max(progress, 0), 1);
         document.documentElement.style.setProperty('--scroll-per', `${progress * 100}%`);
     });
-
 });
-
-
-
-
-
